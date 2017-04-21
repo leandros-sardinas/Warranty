@@ -1,0 +1,256 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Warranty Registration</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/main.css">        
+    </head>
+    <body>
+        
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="http://www.shade-o-matic.com" tabindex="1">
+                            <img src="img/logo.png" alt="Shade-o-matic logo" class="logo">
+                        </a>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">                        
+                        <li>
+                            <a href="#en" data-bind="click: function(){changeLang('en')}, css: {link_active: (lang().lang == 'en') }" class="link_active">
+                                English
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#fr" data-bind="click: function(){changeLang('fr')}, css: {link_active: (lang().lang == 'fr') }">
+                                Français
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <section class="default-row registration-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 data-bind="text: lang().title">
+                            Shutter Warranty Registration
+                        </h1>
+                        <p>
+                            <span data-bind="text: lang().titleDesc">
+                                Thank you for purchasing Shade-O-Matic Shutters. 
+                            </span>
+                            <br>
+                            <span data-bind="text: lang().titleThank">
+                                Please take a moment to register your product and activate your warranty.
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="default-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="http://www.shadeomatic.com/" data-bind="text: lang().home">Home</a>
+                            </li>
+                            <li class="active" data-bind="text: lang().title">
+                                Shutter Warranty Registration
+                            </li>
+                        </ul>
+                    </div>
+
+                    <form id="form">
+                    <div class="col-xs-12">
+                        <p class="alert alert-danger" data-bind="visible: error, text: lang().error">                            
+                        </p>
+
+                        <p class="alert alert-success" data-bind="visible: success, text: lang().success">                            
+                        </p>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="order" data-bind="text: lang().order" class="required"></label>
+                            <input class="form-control" 
+                                id="order" name="order"
+                                type="text"
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().order}, value:order" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name" data-bind="text: lang().name" class="required"></label>
+                            <input class="form-control" 
+                                type="text" 
+                                name="name" id="name"
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().name}, value: name"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email" data-bind="text: lang().email" class="required"></label>
+                            <input class="form-control" 
+                                type="email" 
+                                name="email" id="email" 
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().email}, value:email"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="country" data-bind="text: lang().country" class="required"></label>
+                            <select class="form-control"                                 
+                                id="country" name="country"
+                                data-bind="enable:enabled, options:countries, optionsText:'name', value:country">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="provinces" data-bind="text: lang().province" class="required"></label>
+                            <select class="form-control"
+                                id="provinces"
+                                data-bind="enable:enabled, options:country().provinces, optionsText:'abbrv', value:province">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address1" data-bind="text: lang().address1" class="required"></label>
+                            <input class="form-control" 
+                                type="text" 
+                                name="address1" id="address1"
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().address1}, value:address1"/>
+                        </div>                    
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="address2" data-bind="text: lang().address2"></label>
+                            <input class="form-control" 
+                                type="text"
+                                name="address2" id="address2"                            
+                                data-bind="enable:enabled, attr:{placeholder: lang().address2}, value:address2"/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="city" data-bind="text: lang().city" class="required"></label>
+                            <input class="form-control" 
+                                type="text"
+                                name="city" id="city"
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().city}, value:city" />
+                        </div>
+                    </div>                                
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="postalCode" data-bind="text: lang().postalCode" class="required"></label>
+                            <input class="form-control" 
+                                type="text" 
+                                id="postalCode" name="postalCode"
+                                required
+                                data-bind="enable:enabled, attr:{placeholder: lang().postalCode}, value:postalCode" />
+                        </div>
+                    </div>                
+
+                    <div class="col-xs-12">                        
+                        <button class="btn btn-primary pull-right" 
+                            data-bind="enable:enabled, text: lang().send, click: send">
+                        </button>
+                        <img src="/img/loading.gif" alt="loading" class="pull-right" data-bind="visible: !enabled()" />
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <footer class="default-row footer-row">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3">
+                        <p>
+                            <strong data-bind="text: lang().sitemap">SITE MAP</strong>
+                        </p>
+                        
+                        <ul>
+                            <li><a href="http://www.shadeomatic.com/" data-bind="text: lang().home" >Home</a></li>
+                            <li><a href="http://www.shadeomatic.com/about-us/company.html" data-bind="text: lang().company">Company</a></li>                            
+                            <li><a href="http://www.shadeomatic.com/faq/resources.html" data-bind="text: lang().resources">Resources</a></li>
+                            <li><a href="http://www.shadeomatic.com/dealer-locator.html" data-bind="text: lang().dealerLocator">Dealer Locator</a></li>
+                            <li><a href="http://dealers.shadeomatic.com" target="_blank" data-bind="text: lang().dealerSite">Dealer Site</a></li>
+                            <li><a href="http://www.shadeomatic.com/contact.html" data-bind="text: lang().contactUs">Contact Us</a></li>
+					    </ul>                        
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <strong data-bind="text: lang().products">
+                                PRODUCTS
+                            </strong>
+                        </p>
+                        <ul>
+						    <li><a href="http://www.shadeomatic.com/blinds-and-shades/products.html" data-bind="text: lang().blindsAndShades">Blinds and Shades</a></li>
+                            <li><a href="http://www.shadeomatic.com/shutters/products.html" data-bind="text: lang().shutters">Shutters</a></li>
+                            <li><a href="http://www.shadeomatic.com/new-for-2017/products.html" data-bind="text: lang().news">New For 2017</a></li>
+					    </ul>
+                    </div>
+                    <div class="col-md-3">
+                        <p>
+                            <strong data-bind="text: lang().contacts">CONTACTS</strong>
+                        </p>
+                        <p>
+                            132 First Gulf Blvd. <br>
+                            Brampton, Ontario <br>
+                            L6W 4T7
+                        </p>
+                        <p>
+                            Phone: 1-800-387-2879
+                            <br>
+                            Fax: 1-866-937-1872
+                        </p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="img/logo.png" alt="Logo" />
+                    </div>
+
+                    <div class="col-xs-12">
+                        <p>
+                            <strong data-bind="text: lang().copyright">
+                                Copyright
+                            </strong>                            
+                            <br>
+                            <span data-bind="text: lang().copyrightText">
+                                Shade O Matic, 2017. All right Reserved
+                            </span>                            
+                        </p>                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="js/vendor/jquery.validate.min.js"></script>
+        <script src="js/vendor/ko.js"></script>
+        <script src="js/main.js"></script>
+        
+    </body>
+</html>
